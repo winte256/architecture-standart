@@ -73,10 +73,22 @@ workspace "Банк Стандарт" "" {
                 description "Система колл-центра, которая обрабатывает звонки клиентов"
                 technology "React.js + Java Spring Boot + PostgreSQL"
             }
+            sPartnerCallCenter = container "Партнёрский кол-центр" {
+                description "Внешняя система партнёрского кол-центра"
+                technology "Внешняя система"
+            }
+            sRatesExport = container "Сервис выгрузки ставок" {
+                description "Формирует и передаёт актуальные ставки по депозитам для кол-центров"
+                technology "C# или PL-SQL (в зависимости от реализации)"
+            }
             sSMSGateway = container "СМС-шлюз" {
                 description "СМС-шлюз, который отправляет СМС-сообщения клиентам"
                 technology ""
             }
+
+            sABS.depositModule -> sRatesExport "Передаёт актуальные ставки"
+            sRatesExport -> sCallCenter "Передаёт ставки (API или файл)"
+            sRatesExport -> sPartnerCallCenter "Выгружает файл ставок (SFTP)"
 
             sInternetBank.frontend -> sInternetBank.backend "Запросы от клиента"
             sInternetBank.backend -> sInternetBank.depositService "Обработка заявок на депозиты"
