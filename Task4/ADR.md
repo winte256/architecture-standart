@@ -33,10 +33,10 @@
 
 ### <a name="_qmphm5d6rvi3"></a>**Решение**
 
+![контекст](c4/structurizr-Context.png)
+![контейнеры](c4/structurizr-Containers.png)
 ![компонент АБС](c4/structurizr-ABS-Components.png)
 ![комопнент интернет банка](c4/structurizr-IBank-Components.png)
-![контейнеры](c4/structurizr-Containers.png)
-![контекст](c4/structurizr-Context.png)
   
 
 ### <a name="_bjrr7veeh80c"></a>**Альтернативы**
